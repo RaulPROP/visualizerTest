@@ -459,8 +459,6 @@ export class VisualizerComponent implements OnInit {
 
     this.renderHoverScene();
 
-    console.log(this.scene);
-
   }
 
   private getNewValuesFor(attribute: string, elements: number, index: number): number[]
@@ -562,10 +560,6 @@ export class VisualizerComponent implements OnInit {
 
       const colorIndex = (color[0] * 65536) + (color[1] * 256) + (color[2]);
 
-      if (this.debugMode) {
-        console.log('0'.repeat(6 - colorIndex.toString(16).length) + colorIndex.toString(16));
-      }
-
       this.nodesMaterial.uniforms.hoveredIndex.value = colorIndex;
 
       if (colorIndex > 0 && colorIndex < parseInt('ffffff', 16)) {
@@ -633,57 +627,6 @@ export class VisualizerComponent implements OnInit {
   {
 
     this.renderingHoverScene = !this.renderingHoverScene;
-
-  }
-
-  public onDebug(): void
-  {
-
-    this.debugMode = !this.debugMode;
-
-    if (this.debugMode) {
-
-      const boxAtt = Object.keys(this.meshBoxes.geometry.attributes);
-      const uniqueBoxAtt = Object.keys(this.uniqueMeshBoxes.geometry.attributes);
-
-      for (const att in boxAtt) {
-        if (uniqueBoxAtt.includes(att)) {
-
-          const normalArray = this.meshBoxes.geometry.attributes[att].array;
-          const uniqueArray = this.uniqueMeshBoxes.geometry.attributes[att].array;
-
-          for (let i = 0; i < normalArray.length; i++) {
-
-            if (normalArray[i] !== uniqueArray[i]) {
-              console.log('[BOX] (' + att + ')');
-            }
-
-          }
-
-        }
-      }
-
-      const sphereAtt = Object.keys(this.meshSpheres.geometry.attributes);
-      const uniqueSphereAtt = Object.keys(this.uniqueMeshSpheres.geometry.attributes);
-
-      for (const att in sphereAtt) {
-        if (uniqueSphereAtt.includes(att) && att !== 'color') {
-
-          const normalArray = this.meshSpheres.geometry.attributes[att].array;
-          const uniqueArray = this.uniqueMeshSpheres.geometry.attributes[att].array;
-
-          for (let i = 0; i < normalArray.length; i++) {
-
-            if (normalArray[i] !== uniqueArray[i]) {
-              console.log('[SPHERE] (' + att + ')');
-            }
-
-          }
-
-        }
-      }
-
-    }
 
   }
 
