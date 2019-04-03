@@ -1,0 +1,232 @@
+
+.wrapper-all {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.wrapper-all.dark {
+  color: #2b2b2b;
+}
+
+.wrapper-all:not(.dark) {
+  color: #ffffff;
+}
+
+canvas {
+  background-color: #ffffff;
+}
+
+.dark canvas {
+  background-color: #2b2b2b;
+}
+
+.buttons-list {
+  position: absolute;
+  top: 0;
+  
+  padding: 20px 0;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  pointer-events: none;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  width: max-content;
+  height: 100%;
+}
+
+.left.buttons-list {
+  align-items: flex-start;
+}
+
+.right.buttons-list {
+  align-items: flex-end;
+}
+
+.buttons-list.left {
+  left: 0;
+}
+
+.buttons-list.right {
+  right: 0;
+}
+
+.graph-button {
+  position: relative;
+  height: 40px;
+  width: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  pointer-events: all;
+
+  margin: 20px 0;
+
+  -webkit-transition: transform 0.3s;
+  -moz-transition: transform 0.3s;
+  -ms-transition: transform 0.3s;
+  -o-transition: transform 0.3s;
+  transition: transform 0.3s;
+
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  background-color: white;
+
+  cursor: pointer;
+}
+
+.graph-button-label {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.graph-button.add {
+  background-color: darkgreen;
+}
+
+.graph-button.remove {
+  background-color: darkred;
+}
+
+.graph-button.action {
+  background-color: darkorange;
+}
+
+.left .graph-button {
+  -webkit-transform: translate(calc(-100% + 40px), 0);
+  -moz-transform: translate(calc(-100% + 40px), 0);
+  -ms-transform: translate(calc(-100% + 40px), 0);
+  -o-transform: translate(calc(-100% + 40px), 0);
+  transform: translate(calc(-100% + 40px), 0);
+
+  flex-direction: row;
+
+  -webkit-border-radius: 0 20px 20px 0;
+  -moz-border-radius: 0 20px 20px 0;
+  border-radius: 0 20px 20px 0;
+}
+
+.left .graph-button-label {
+  padding-left: 20px;
+}
+
+.left .graph-button:hover {
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+.right .graph-button {
+  -webkit-transform: translate(calc(100% - 40px), 0);
+  -moz-transform: translate(calc(100% - 40px), 0);
+  -ms-transform: translate(calc(100% - 40px), 0);
+  -o-transform: translate(calc(100% - 40px), 0);
+  transform: translate(calc(100% - 40px), 0);
+
+  flex-direction: row-reverse;
+
+  -webkit-border-radius: 20px 0 0 20px;
+  -moz-border-radius: 20px 0 0 20px;
+  border-radius: 20px 0 0 20px;
+}
+
+.right .graph-button-label {
+  padding-right: 20px;
+}
+
+.right .graph-button:hover {
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+.left .graph-button.active {
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+.right .graph-button.active {
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+.graph-button-icon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-rotate {
+  -webkit-transition: transform 0.3s;
+  -moz-transition: transform 0.3s;
+  -ms-transition: transform 0.3s;
+  -o-transition: transform 0.3s;
+  transition: transform 0.3s;
+
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.icon-rotate.rotated {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.figure-one {
+  position: absolute;
+  left: calc(100% / 3);
+  bottom: 20px;
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  -o-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}
+
+.figure-two {
+  position: absolute;
+  left: calc((100% / 3) * 2);
+  bottom: 20px;
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  -o-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}
+

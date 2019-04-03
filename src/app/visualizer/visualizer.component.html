@@ -1,0 +1,70 @@
+<div class="wrapper-all" id="bg" [class.dark]="darkTheme" #wrapper>
+
+  <canvas class="wrapper-all" #canvas></canvas>
+
+  <div class="buttons-list left">
+
+    <div class="graph-button add" (click)="addMeshes(0)">
+      <span class="graph-button-label">add {{figuresIds[0]}}</span>
+      <i class="graph-button-icon fa fa-circle" *ngIf="figuresIds[0] === 'sphere'"></i>
+      <i class="graph-button-icon fa fa-square" *ngIf="figuresIds[0] === 'box'"></i>
+      <i class="graph-button-icon fa fa-vial" *ngIf="figuresIds[0] === 'cylinder'"></i>
+      <i class="graph-button-icon fa fa-circle-notch" *ngIf="figuresIds[0] === 'torus'"></i>
+    </div>
+
+    <div class="graph-button add" (click)="addMeshes(1)">
+      <span class="graph-button-label">add {{figuresIds[1]}}</span>
+      <i class="graph-button-icon fa fa-circle" *ngIf="figuresIds[1] === 'sphere'"></i>
+      <i class="graph-button-icon fa fa-square" *ngIf="figuresIds[1] === 'box'"></i>
+      <i class="graph-button-icon fa fa-vial" *ngIf="figuresIds[1] === 'cylinder'"></i>
+      <i class="graph-button-icon fa fa-circle-notch" *ngIf="figuresIds[1] === 'torus'"></i>
+    </div>
+
+  </div>
+
+  <div class="buttons-list right">
+
+    <div class="graph-button action" (click)="onToggleTheme()">
+      <span class="graph-button-label">TOGGLE THEME</span>
+      <i class="graph-button-icon fa fa-sun" *ngIf="!darkTheme"></i>
+      <i class="graph-button-icon fa fa-moon" *ngIf="darkTheme"></i>
+    </div>
+
+    <div class="graph-button action" (click)="onToggleScene()">
+      <span class="graph-button-label">TOGGLE SCENES</span>
+      <i class="graph-button-icon icon-rotate fa fa-adjust" [class.rotated]="renderingHoverScene"></i>
+    </div>
+
+    <div class="graph-button active" [class.add]="showingOne" [class.remove]="!showingOne" (click)="onToggleMesh(1)">
+      <span class="graph-button-label">{{!showingOne ? 'NOT' : ''}} showing {{figuresIds[0]}}</span>
+      <i class="graph-button-icon fa fa-circle" *ngIf="figuresIds[0] === 'sphere'"></i>
+      <i class="graph-button-icon fa fa-square" *ngIf="figuresIds[0] === 'box'"></i>
+      <i class="graph-button-icon fa fa-vial" *ngIf="figuresIds[0] === 'cylinder'"></i>
+      <i class="graph-button-icon fa fa-circle-notch" *ngIf="figuresIds[0] === 'torus'"></i>
+    </div>
+
+    <div class="graph-button active" [class.add]="showingTwo" [class.remove]="!showingTwo" (click)="onToggleMesh(2)">
+      <span class="graph-button-label">{{!showingTwo ? 'NOT' : ''}} showing {{figuresIds[1]}}</span>
+      <i class="graph-button-icon fa fa-circle" *ngIf="figuresIds[1] === 'sphere'"></i>
+      <i class="graph-button-icon fa fa-square" *ngIf="figuresIds[1] === 'box'"></i>
+      <i class="graph-button-icon fa fa-vial" *ngIf="figuresIds[1] === 'cylinder'"></i>
+      <i class="graph-button-icon fa fa-circle-notch" *ngIf="figuresIds[1] === 'torus'"></i>
+    </div>
+
+  </div>
+
+  <mat-form-field class="figure-one" [class.dark]="darkTheme">
+    <mat-label>Figure 1</mat-label>
+    <mat-select [(value)]="figuresIds[0]" (selectionChange)="onFigureChange(0)">
+      <mat-option *ngFor="let key of filterElement(figuresIds[1], allFormsKeys)" [value]="key">{{key}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="figure-two" [class.dark]="darkTheme">
+    <mat-label>Figure 2</mat-label>
+    <mat-select [(value)]="figuresIds[1]" (selectionChange)="onFigureChange(1)">
+      <mat-option *ngFor="let key of filterElement(figuresIds[0], allFormsKeys)" [value]="key">{{key}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>

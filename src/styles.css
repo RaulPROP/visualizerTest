@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+html,
+body,
+app-root {
+  width: 100vw;
+  height: 100vh;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.wrapper-all {
+  width: 100%;
+  height: 100%;
+}
+
+mat-form-field .mat-form-field-underline,
+mat-form-field .mat-form-field-ripple {
+  background-color: #2b2b2b !important;
+}
+
+mat-form-field.dark .mat-form-field-underline,
+mat-form-field.dark .mat-form-field-ripple {
+  background-color: #f0f0f0 !important;
+}
+
+mat-form-field .mat-select-value,
+mat-form-field .mat-select-arrow,
+mat-form-field mat-label {
+  color: #2b2b2b !important;
+}
+
+mat-form-field.dark .mat-select-value,
+mat-form-field.dark .mat-select-arrow,
+mat-form-field.dark mat-label {
+  color: #f0f0f0 !important;
+}
